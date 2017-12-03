@@ -1,0 +1,70 @@
+buildscript {
+    repositories {
+        maven {
+            name = 'forge'
+            url = 'http://files.minecraftforge.net/maven'
+        }
+        maven {
+            name = 'sponge'
+            url = 'https://repo.spongepowered.org/maven'
+        }
+    }
+
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'org.spongepowered:mixingradle:0.5-SNAPSHOT'
+    }
+}
+
+plugins {
+    id 'org.spongepowered.plugin' version '0.8.1'
+    id 'net.minecrell.vanillagradle.server' version '2.2-6'
+}
+
+apply plugin: 'org.spongepowered.mixin'
+
+version = ver
+group = 'com.guichaguri.packetcontrol'
+archivesBaseName = 'PacketControl'
+
+sponge.plugin.id = 'packetcontrol'
+sponge.plugin.meta.version = ver
+
+sourceCompatibility = targetCompatibility = '1.8'
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+configurations {
+    shade
+    compile.extendsFrom shade
+}
+
+dependencies {
+    shade project(':api')
+    compile 'org.spongepowered:spongeapi:7.0.0-SNAPSHOT'
+    compile('org.spongepowered:spongecommon:7.0.0-SNAPSHOT:dev') {
+        transitive = false
+    }
+    compile 'org.spongepowered:mixin:0.7.5-SNAPSHOT'
+}
+
+minecraft {
+    version = "1.12.2"
+    mappings = "snapshot_20171111"
+    makeObfSourceJar = false
+}
+
+sourceSets {
+    main {
+        refMap = "mixins.packetcontrol.refmap.json"
+    }
+}
+
+jar {
+    manifest.attributes(
+            'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
+            'MixinConfigs': 'mixins.packetcontrol.json',
+            'FMLCorePluginContainsFMLMod': 'true'
+    )
+}

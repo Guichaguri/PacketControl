@@ -1,0 +1,36 @@
+{
+  "required": true,
+  "minVersion": "0.5.7",
+  "package": "com.guichaguri.packetcontrol.mixins",
+  "refmap": "mixins.packetcontrol.refmap.json",
+  "target": "@env(DEFAULT)",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinPacket",
+    "MixinNetworkManager",
+    "MixinEntityMetadata",
+
+    "play.client.MixinPacketMoveVehicle",
+    "play.client.MixinPacketUpdateSign",
+
+    "play.entity.MixinPacketDestroyEntities",
+    "play.entity.MixinPacketEntityMetadata",
+    "play.entity.MixinPacketSpawnExperienceOrb",
+    "play.entity.MixinPacketSpawnMob",
+    "play.entity.MixinPacketSpawnObject",
+    "play.entity.MixinPacketSpawnPainting",
+
+    "play.player.MixinPacketPlayerAbilities",
+    "play.player.MixinPacketSpawnPlayer",
+    "play.player.MixinPacketUseBed",
+    "play.player.MixinPacketVehiclePosition",
+
+    "play.world.MixinPacketCustomSound",
+    "play.world.MixinPacketGameSound",
+    "play.world.MixinPacketOpenSignEditor",
+    "play.world.MixinPacketWorldTime"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,3 @@
+rootProject.name = 'PacketControl'
+
+include ':api', ':mcp', ':lantern'

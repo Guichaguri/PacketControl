@@ -1,0 +1,4 @@
+group 'com.guichaguri.packetcontrol'
+
+// Version
+ext.ver = '1.0.0'
