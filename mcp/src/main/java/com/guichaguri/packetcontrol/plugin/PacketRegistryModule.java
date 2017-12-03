@@ -50,6 +50,7 @@ public class PacketRegistryModule implements ExtraClassCatalogRegistryModule<Pac
         // Entity
         clientbound("destroy_entities", "Destroy Entities", SPacketDestroyEntities.class, PacketControlFactory::createDestroyEntities);
         clientbound("entity_metadata", "Entity Metadata", SPacketEntityMetadata.class, PacketControlFactory::createEntityMetadata);
+        clientbound("entity_velocity", "Entity Velocity", SPacketEntityVelocity.class);
         clientbound("spawn_experience_orb", "Spawn Experience Orb", SPacketSpawnExperienceOrb.class);
         clientbound("spawn_global_entity", "Spawn Global Entity", SPacketSpawnGlobalEntity.class);
         clientbound("spawn_mob", "Spawn Mob", SPacketSpawnMob.class);

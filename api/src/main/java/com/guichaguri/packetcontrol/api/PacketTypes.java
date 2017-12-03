@@ -3,13 +3,7 @@ package com.guichaguri.packetcontrol.api;
 import com.flowpowered.math.vector.Vector3d;
 import com.guichaguri.packetcontrol.api.packets.play.client.PacketMoveVehicle;
 import com.guichaguri.packetcontrol.api.packets.play.client.PacketUpdateSign;
-import com.guichaguri.packetcontrol.api.packets.play.entity.PacketDestroyEntities;
-import com.guichaguri.packetcontrol.api.packets.play.entity.PacketEntityMetadata;
-import com.guichaguri.packetcontrol.api.packets.play.entity.PacketSpawnExperienceOrb;
-import com.guichaguri.packetcontrol.api.packets.play.entity.PacketSpawnGlobalEntity;
-import com.guichaguri.packetcontrol.api.packets.play.entity.PacketSpawnMob;
-import com.guichaguri.packetcontrol.api.packets.play.entity.PacketSpawnObject;
-import com.guichaguri.packetcontrol.api.packets.play.entity.PacketSpawnPainting;
+import com.guichaguri.packetcontrol.api.packets.play.entity.*;
 import com.guichaguri.packetcontrol.api.packets.play.player.PacketPlayerAbilities;
 import com.guichaguri.packetcontrol.api.packets.play.player.PacketSpawnPlayer;
 import com.guichaguri.packetcontrol.api.packets.play.player.PacketUseBed;
@@ -38,6 +32,7 @@ public final class PacketTypes {
     // Entity-based Packets
     public static PacketType<PacketDestroyEntities, Entity[]> DESTROY_ENTITIES = DummyObjectProvider.createFor(PacketType.class, "DESTROY_ENTITIES");
     public static PacketType<PacketEntityMetadata, Entity> ENTITY_METADATA = DummyObjectProvider.createFor(PacketType.class, "ENTITY_METADATA");
+    public static PacketType<PacketEntityVelocity, Entity> ENTITY_VELOCITY = DummyObjectProvider.createFor(PacketType.class, "ENTITY_VELOCITY");
     public static PacketType<PacketSpawnExperienceOrb, ExperienceOrb> SPAWN_EXPERIENCE_ORB = DummyObjectProvider.createFor(PacketType.class, "SPAWN_EXPERIENCE_ORB");
     public static PacketType<PacketSpawnGlobalEntity, Entity> SPAWN_GLOBAL_ENTITY = DummyObjectProvider.createFor(PacketType.class, "SPAWN_GLOBAL_ENTITY");
     public static PacketType<PacketSpawnMob, Living> SPAWN_MOB = DummyObjectProvider.createFor(PacketType.class, "SPAWN_MOB");

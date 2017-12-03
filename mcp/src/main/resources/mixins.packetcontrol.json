@@ -15,6 +15,7 @@
 
     "play.entity.MixinPacketDestroyEntities",
     "play.entity.MixinPacketEntityMetadata",
+    "play.entity.MixinPacketEntityVelocity",
     "play.entity.MixinPacketSpawnExperienceOrb",
     "play.entity.MixinPacketSpawnMob",
     "play.entity.MixinPacketSpawnObject",
