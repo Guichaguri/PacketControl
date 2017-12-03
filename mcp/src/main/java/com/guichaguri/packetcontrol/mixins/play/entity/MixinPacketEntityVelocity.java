@@ -4,6 +4,7 @@ import com.flowpowered.math.vector.Vector3d;
 import com.guichaguri.packetcontrol.api.packets.play.entity.PacketEntityVelocity;
 import com.guichaguri.packetcontrol.plugin.util.PacketUtils;
 import net.minecraft.network.play.server.SPacketEntityVelocity;
+import org.spongepowered.api.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
@@ -23,6 +24,11 @@ public abstract class MixinPacketEntityVelocity implements PacketEntityVelocity 
     @Override
     public void setEntityId(int id) {
         this.entityID = id;
+    }
+
+    @Override
+    public void setEntityId(Entity entity) {
+        entityID = ((net.minecraft.entity.Entity)entity).getEntityId();
     }
 
     @Override

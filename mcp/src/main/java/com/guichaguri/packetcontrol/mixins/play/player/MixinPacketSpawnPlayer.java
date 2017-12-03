@@ -9,6 +9,7 @@ import java.util.UUID;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.network.datasync.EntityDataManager.DataEntry;
 import net.minecraft.network.play.server.SPacketSpawnPlayer;
+import org.spongepowered.api.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
@@ -36,6 +37,11 @@ public abstract class MixinPacketSpawnPlayer implements PacketSpawnPlayer {
     @Override
     public void setEntityId(int id) {
         entityId = id;
+    }
+
+    @Override
+    public void setEntityId(Entity entity) {
+        entityId = ((net.minecraft.entity.Entity)entity).getEntityId();
     }
 
     @Override

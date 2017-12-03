@@ -4,6 +4,7 @@ import com.flowpowered.math.vector.Vector3i;
 import com.guichaguri.packetcontrol.api.packets.play.player.PacketUseBed;
 import net.minecraft.network.play.server.SPacketUseBed;
 import net.minecraft.util.math.BlockPos;
+import org.spongepowered.api.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.common.util.VecHelper;
@@ -25,6 +26,11 @@ public abstract class MixinPacketUseBed implements PacketUseBed {
     @Override
     public void setEntityId(int id) {
         playerID = id;
+    }
+
+    @Override
+    public void setEntityId(Entity entity) {
+        playerID = ((net.minecraft.entity.Entity)entity).getEntityId();
     }
 
     @Override

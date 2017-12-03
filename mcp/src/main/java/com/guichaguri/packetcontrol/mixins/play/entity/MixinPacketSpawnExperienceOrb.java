@@ -3,6 +3,7 @@ package com.guichaguri.packetcontrol.mixins.play.entity;
 import com.flowpowered.math.vector.Vector3d;
 import com.guichaguri.packetcontrol.api.packets.play.entity.PacketSpawnExperienceOrb;
 import net.minecraft.network.play.server.SPacketSpawnExperienceOrb;
+import org.spongepowered.api.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
@@ -26,6 +27,11 @@ public abstract class MixinPacketSpawnExperienceOrb implements PacketSpawnExperi
     @Override
     public void setEntityId(int id) {
         entityID = id;
+    }
+
+    @Override
+    public void setEntityId(Entity entity) {
+        entityID = ((net.minecraft.entity.Entity)entity).getEntityId();
     }
 
     @Override

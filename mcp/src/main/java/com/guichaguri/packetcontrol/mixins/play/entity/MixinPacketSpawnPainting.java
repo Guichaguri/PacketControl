@@ -9,6 +9,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import org.spongepowered.api.data.type.Art;
 import org.spongepowered.api.data.type.Arts;
+import org.spongepowered.api.entity.Entity;
 import org.spongepowered.api.util.Direction;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -35,6 +36,11 @@ public abstract class MixinPacketSpawnPainting implements PacketSpawnPainting {
     @Override
     public void setEntityId(int id) {
         entityID = id;
+    }
+
+    @Override
+    public void setEntityId(Entity entity) {
+        entityID = ((net.minecraft.entity.Entity)entity).getEntityId();
     }
 
     @Override

@@ -6,6 +6,7 @@ import java.util.List;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.network.datasync.EntityDataManager.DataEntry;
 import net.minecraft.network.play.server.SPacketEntityMetadata;
+import org.spongepowered.api.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -36,6 +37,11 @@ public abstract class MixinPacketEntityMetadata implements PacketEntityMetadata 
     @Override
     public void setEntityId(int id) {
         entityId = id;
+    }
+
+    @Override
+    public void setEntityId(Entity entity) {
+        entityId = ((net.minecraft.entity.Entity)entity).getEntityId();
     }
 
     @Override

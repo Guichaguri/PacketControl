@@ -54,6 +54,11 @@ public abstract class MixinPacketSpawnObject implements PacketSpawnObject {
     }
 
     @Override
+    public void setEntityId(Entity entity) {
+        entityId = ((net.minecraft.entity.Entity)entity).getEntityId();
+    }
+
+    @Override
     public UUID getUniqueId() {
         return uniqueId;
     }

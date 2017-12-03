@@ -43,6 +43,11 @@ public abstract class MixinPacketSpawnGlobalEntity implements PacketSpawnGlobalE
     }
 
     @Override
+    public void setEntityId(Entity entity) {
+        entityId = ((net.minecraft.entity.Entity)entity).getEntityId();
+    }
+
+    @Override
     public EntityType getEntityType() {
         return spongeType;
     }
