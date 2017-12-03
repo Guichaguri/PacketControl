@@ -10,6 +10,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 import net.minecraft.network.Packet;
+import net.minecraft.network.play.client.CPacketClickWindow;
+import net.minecraft.network.play.client.CPacketCloseWindow;
 import net.minecraft.network.play.client.CPacketUpdateSign;
 import net.minecraft.network.play.client.CPacketVehicleMove;
 import net.minecraft.network.play.server.*;
@@ -57,6 +59,13 @@ public class PacketRegistryModule implements ExtraClassCatalogRegistryModule<Pac
         clientbound("spawn_object", "Spawn Object", SPacketSpawnObject.class, PacketControlFactory::createSpawnObject);
         clientbound("spawn_painting", "Spawn Painting", SPacketSpawnPainting.class);
 
+        // Inventory
+        clientbound("close_window", "Close Window", SPacketCloseWindow.class, PacketControlFactory::createCloseWindow);
+        clientbound("confirm_transaction", "Confirm Transaction", SPacketConfirmTransaction.class, PacketControlFactory::createConfirmTransaction);
+        clientbound("open_window", "Open Window", SPacketOpenWindow.class, PacketControlFactory::createOpenWindow);
+        clientbound("set_slot", "Set Slot", SPacketSetSlot.class, PacketControlFactory::createSetSlot);
+        clientbound("window_items", "Window Items", SPacketWindowItems.class, PacketControlFactory::createWindowItems);
+
         // Player
         clientbound("player_abilities", "Player Abilities", SPacketPlayerAbilities.class, PacketControlFactory::createPlayerAbilities);
         clientbound("spawn_player", "Spawn Player", SPacketSpawnPlayer.class);
@@ -70,8 +79,10 @@ public class PacketRegistryModule implements ExtraClassCatalogRegistryModule<Pac
         clientbound("world_time", "World Time", SPacketTimeUpdate.class, PacketControlFactory::createWorldTime);
 
         // Client
+        serverbound("click_window", "Click Window", CPacketClickWindow.class);
         serverbound("move_vehicle", "Move Vehicle", CPacketVehicleMove.class);
         serverbound("update_sign", "Update Sign", CPacketUpdateSign.class);
+        serverbound("window_close", "Window Close", CPacketCloseWindow.class);
     }
 
     @Override

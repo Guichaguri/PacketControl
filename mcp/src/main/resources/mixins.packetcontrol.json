@@ -10,8 +10,10 @@
     "MixinNetworkManager",
     "MixinEntityMetadata",
 
+    "play.client.MixinPacketClickWindow",
     "play.client.MixinPacketMoveVehicle",
     "play.client.MixinPacketUpdateSign",
+    "play.client.MixinPacketWindowClose",
 
     "play.entity.MixinPacketDestroyEntities",
     "play.entity.MixinPacketEntityMetadata",
@@ -20,6 +22,12 @@
     "play.entity.MixinPacketSpawnMob",
     "play.entity.MixinPacketSpawnObject",
     "play.entity.MixinPacketSpawnPainting",
+
+    "play.inventory.MixinPacketCloseWindow",
+    "play.inventory.MixinPacketConfirmTransaction",
+    "play.inventory.MixinPacketOpenWindow",
+    "play.inventory.MixinPacketSetSlot",
+    "play.inventory.MixinPacketWindowItems",
 
     "play.player.MixinPacketPlayerAbilities",
     "play.player.MixinPacketSpawnPlayer",
