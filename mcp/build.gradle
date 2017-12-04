@@ -57,7 +57,7 @@ minecraft {
 
 sourceSets {
     main {
-        refMap = "mixins.packetcontrol.refmap.json"
+        ext.refMap = "mixins.packetcontrol.refmap.json"
     }
 }
 

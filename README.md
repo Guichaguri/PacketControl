@@ -43,10 +43,13 @@ service.registerHandler(PacketTypes.WORLD_TIME, (con, packet) -> {
 This is the main reason why protocol libraries became popular on Bukkit.
 
 Unlike Bukkit, Sponge aims to have every vanilla feature possible on its API, but until those are suggested and implemented, you can use this plugin to do so.
-Also, some features might not fit into the API and will never be implemented.
+Also, some features might not fit into the Sponge API and will never be implemented.
+
+Please, don't use packets to do anything that the Sponge API already allows you to do.
+This library is meant to be used in the last case scenario, when it's impossible or not viable to do with Sponge alone.   
 
 #### Bugs
-There are a lot of bugs that you can explore with packets, and because of that, they will never be added to the Sponge API.
+There are a lot of bugs that you can explore with packets, and because they can stop working at any update, they will never be added to the Sponge API.
 Some of them are pretty interesting, such as the animated MOTDs bug.
 
 #### Undetectable Modifications
